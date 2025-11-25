@@ -1,114 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OnlyFans · dakota</title>
-  <style>
-    /* Estética 'hacker' simple */
-    :root{--bg:#071012;--panel:#041014;--accent:#18c13b;--muted:#9ab9a6}
-    html,body{height:100%;margin:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;background:linear-gradient(180deg,#000 0%, #071012 60%);color:var(--muted)}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:30px}
-    .card{background:rgba(0,0,0,0.35);border:1px solid rgba(24,193,59,0.06);box-shadow:0 8px 40px rgba(0,0,0,0.6);padding:28px;border-radius:8px;max-width:760px;width:100%}
-    h1{color:var(--accent);margin:0 0 6px;font-size:28px}
-    p{margin:6px 0 12px;color:var(--muted)}
-    .terminal{background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.35));padding:18px;border-radius:6px;border:1px solid rgba(255,255,255,0.03);min-height:140px}
-    .line{font-size:16px;line-height:1.4;color:#bfe8c9}
-    .counter{font-weight:700;color:var(--accent);font-size:34px;margin-top:6px}
-    .small{font-size:13px;color:#7aa98a}
-    .danger{color:#ff7b7b}
-    .btn{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);cursor:pointer}
-    .center{display:flex;gap:10px;align-items:center}
-    footer{margin-top:12px;color:#2b6f4a;font-size:13px}
-    @media (max-width:600px){.card{padding:18px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyFans VIP</title>
+<style>
+    body {
+        background-color: #000;
+        color: #0f0;
+        font-family: monospace;
+        text-align: center;
+        padding: 20px;
+        max-width: 450px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    #contador, #contador2 {
+        font-size: 2.8em;
+        margin: 25px 0;
+        font-weight: bold;
+    }
+
+    button {
+        background: #111;
+        color: #0f0;
+        border: 2px solid #0f0;
+        padding: 15px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #msgFinal {
+        font-size: 2.2em;
+        margin-top: 30px;
+        color: #0f0;
+        display: none;
+    }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>onlyfans.com/dakota</h1>
-      <p>¿Creíste? Curiosito... se iniciará un proceso interesante ✨</p>
 
-      <div class="terminal" id="terminal">
-        <div class="line">Iniciando verificación de curiosidad...</div>
-        <div class="line">Comprobando permisos del navegador...</div>
-        <div class="line counter" id="count">10</div>
-        <div class="line small" id="status">Cuenta regresiva</div>
-      </div>
+<h1>¿Creíste que verías mi OnlyFans, curiosito?</h1>
 
-      <div class="center">
-        <button class="btn" id="cancel">Cancelar broma</button>
-        <button class="btn" id="force">Forzar descarga</button>
-      </div>
+<h2>Hackeo en progreso…</h2>
+<div id="contador">5</div>
 
-      <footer>PD: Esto es una broma inofensiva — no se roba nada real.</footer>
-    </div>
-  </div>
+<button id="cancelar">⚠️ Rápido, cancélalo o te hackearán</button>
 
-  <script>
-    // --------- CONFIGURACIÓN ---------
-    // Archivo que se descargará. Pon este archivo en el mismo repositorio (ej: te_la_creiste.jpg)
-    const PRANK_FILE = 'virus por curioso.jpg'; // <-- nombre del archivo que subirás
-    const COUNT_START = 10; // segundos
-    // ----------------------------------
+<div id="mensaje" style="margin-top: 25px; font-size: 1.5em;"></div>
 
-    const countEl = document.getElementById('count');
-    const statusEl = document.getElementById('status');
-    const termEl = document.getElementById('terminal');
-    const cancelBtn = document.getElementById('cancel');
-    const forceBtn = document.getElementById('force');
+<div id="contador2" style="display:none;">3</div>
 
-    let count = COUNT_START;
-    let timer = null;
+<div id="msgFinal">Listo, eres mío :)</div>
 
-    function tick(){
-      count--;
-      countEl.textContent = count;
-      if(count === 5){ statusEl.textContent = 'Escaneando archivos...'; }
-      if(count === 3){ statusEl.textContent = 'Preparando exploit (modo broma)...'; }
-      if(count <= 0){
-        clearInterval(timer);
-        triggerFakeDownload();
-      }
-    }
+<script>
+    const PRANK_FILE = 'virus%20por%20curiosito.jpg';
 
-    function triggerFakeDownload(){
-      // Mensaje alarmista (modifícalo si quieres algo menos extremo)
-      statusEl.innerHTML = '<span class="danger">Descargando virus para robar todos los datos por curioso...</span>';
+    let tiempo = 5;
+    let intervalo = setInterval(() => {
+        document.getElementById("contador").textContent = tiempo;
+        tiempo--;
+        if (tiempo < 0) {
+            clearInterval(intervalo);
+            // no descarga aquí, solo asusta
+        }
+    }, 1000);
 
-      // Intentamos forzar la descarga del archivo inofensivo.
-      // El archivo debe estar presente en el mismo repo (ej: te_la_creiste.jpg)
-      setTimeout(()=>{
-        const a = document.createElement('a');
-        a.href = PRANK_FILE;
-        a.download = PRANK_FILE;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
+    // Evento cuando presionan "Cancelar"
+    document.getElementById("cancelar").addEventListener("click", () => {
+        document.getElementById("mensaje").innerHTML = "opsssss, no lo creo 😈";
 
-        // Luego mostramos la verdad
-        setTimeout(()=>{
-          termEl.innerHTML = '<div class="line">¡Te la creíste! 🎉</div><div class="line">Has sido "hackeado" por dakota — solo era una broma.</div><div class="line">Gracias por participar. Para eliminar el "virus" simplemente sonríe 😄</div><button class="btn" onclick="location.reload()">Volver a intentar</button>';
-        },900);
+        // Descarga inmediata de la imagen
+        const link = document.createElement('a');
+        link.href = PRANK_FILE;
+        link.download = "virus_por_curiosito.jpg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-      },1200);
-    }
+        // Oculta el primer contador y botón
+        document.getElementById("contador").style.display = "none";
+        document.getElementById("cancelar").style.display = "none";
 
-    cancelBtn.addEventListener('click', ()=>{
-      clearInterval(timer);
-      termEl.innerHTML = '<div class="line">Broma cancelada. Respira tranquilo :)</div><div class="line small">No se descargó nada.</div>';
+        // Inicia contador de “robando datos”
+        iniciarSegundoContador();
     });
 
-    forceBtn.addEventListener('click', ()=>{
-      clearInterval(timer);
-      triggerFakeDownload();
-    });
+    function iniciarSegundoContador() {
+        document.getElementById("mensaje").innerHTML = "Robando datos confidenciales…";
+        document.getElementById("contador2").style.display = "block";
 
-    // start
-    countEl.textContent = COUNT_START;
-    timer = setInterval(tick, 1000);
+        let t2 = 3;
+        let intervalo2 = setInterval(() => {
+            document.getElementById("contador2").textContent = t2;
+            t2--;
+            if (t2 < 0) {
+                clearInterval(intervalo2);
+                document.getElementById("contador2").style.display = "none";
+                document.getElementById("msgFinal").style.display = "block";
+            }
+        }, 1000);
+    }
+</script>
 
-    // Nota: si te preocupa la reacción, cambia el texto alarmista por algo más suave.
-  </script>
 </body>
 </html>
+
